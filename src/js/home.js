@@ -6,10 +6,9 @@ app.controller('timeLogController', function ($scope, $timeout) {
     'use strict';
     mainData.logData = new newLog();
     mainData.digiTimer = new timer();
-    mainData.logData.currentTime = "00:00:00";
     $scope.newLog = mainData.logData;
     
-    $scope.currentTime = mainData.logData.currentTime;
+    $scope.currentTime =mainData.digiTimer.getDigitalTime();
     
     $scope.switchTimer = function() {
         mainData.logData.duration = !mainData.logData.duration;
@@ -31,6 +30,8 @@ app.controller('timeLogController', function ($scope, $timeout) {
         mainData.logData.totalDuration = (new Date()).getTime() - mainData.logData.startTime;
         
         mainData.digiTimer.resetTime();
+        
+        $scope.currentTime = mainData.digiTimer.getDigitalTime();
     };
     
     function runTimer() {

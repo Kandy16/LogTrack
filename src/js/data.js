@@ -18,7 +18,6 @@ newLog.prototype = {
         startTime: 0,
         timerRunning: false,
         totalDuration: 0,
-        currentTime: "",
         parseTime: function(time) {
             //Parse the user entered duration time
         },
