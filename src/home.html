@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Time log Bootstrap</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="js/external/bootstrap/css/bootstrap.min.css"  rel="stylesheet" />
+        <link href="css/home-desktop.css" rel="stylesheet" />
+        <link href="plugins/bootstrap-datepicker/datepicker3.css" rel="stylesheet" />
+        <script src="js/external/jquery-2.1.1.min.js" ></script>
+        <script src="js/external/bootstrap/js/bootstrap.js" ></script>
+        <script src="js/external/angular.js" ></script>
+        <script src="plugins/bootstrap-datepicker/bootstrap-datepicker.js" ></script>
+        <script src="js/data.js" ></script>
+        <script src="js/timer.js"></script>
+        <script src="js/home.js" ></script>
+    </head>
+    <body>
+        <div class="container" ng-app="logApp">
+            <header class="row home-header" ng-controller="logHeaderController">
+                <section class="col-md-3">
+                    <label class="home-header-label">Soliton time logger</label>
+                </section>
+                <section class="col-md-6">
+                    
+                </section>
+                <section class="col-md-3">
+                    <img class="img-responsive home-header-image" src="img/settings.png" />
+                    <label class="home-header-label home-header-user">{{ userName }}</label> 
+                </section>
+            </header>
+            <section class="row home-main" ng-controller="timeLogController">
+                <!--logger main area-->
+                <!--<label class="home-main-datepicker-label"><center>Log date:</center></label>-->
+                <section class="input-group date home-main-datepicker-section" id="datepicker">
+                    <input type="text" class="form-control home-main-datepicker" >
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </section>
+                <form name="logForm" id="log.form" class="home-main-form">
+                    <div>
+                        <div class="home-main-form-top">
+                            <input type="text" class="form-control home-main-input-big" placeholder="Project" ng-model="newLog.project" />
+                            <input type="text" class="form-control home-main-input-large" placeholder="Task" ng-model="newLog.task" />
+                            <input type="text" class="form-control home-main-input-medium" placeholder="Skill" ng-model="newLog.skill" />
+                            <input type="text" class="form-control home-main-input-medium" placeholder="Phase" ng-model="newLog.phase" />
+                        </div>
+                        <div class="home-main-form-middle">
+                            <div class="home-main-time-entry">
+                                <span><label class="home-main-timer" ng-show="!newLog.duration" ng-click="switchTimer()">{{ currentTime }}</label></span>
+                                <span><input class="home-main-timer-edit form-control" ng-dblclick="switchTimer()" placeholder="Duration" type="text" ng-show="newLog.duration" /></span>
+                            </div>
+                            <div class="home-main-start-stop">
+                                <span><img class="home-main-play" src="img/play.png" ng-show="!newLog.duration && !newLog.timerRunning" ng-click="switchOnTime()" /></span>
+                                <span><img class="home-main-stop" src="img/stop.png" ng-show="!newLog.duration && newLog.timerRunning" ng-click="switchOffTime()" /></span>
+                            </div>
+                            <button type="button" class="btn btn-primary home-main-log-btn" ng-show="newLog.duration">Log</button>
+                        </div>
+                        <div class="home-main-form-bottom">
+                            <input type="text" class="form-control home-main-input-notes" placeholder="Notes" ng-model="newLog.comment" />
+                            <input type="text" class="form-control home-main-input-medium" placeholder="Location" ng-model="newLog.place" />
+                        </div>
+                    </div>
+                    
+                </form>
+            </section>
+            <section class="row home-bottom" ng-controller="logHistoryController">
+                <!--logger history area-->
+            </section>
+            <footer class="row home-footer">
+                <!--footer info-->
+                <section class="col-md-3">
+                    <img class="img-responsive home-footer-logo" src="img/logo.png" />
+                </section>
+                <section class="col-md-6">
+                    
+                </section>
+                <section class="col-md-3">
+                    <label class="home-footer-label">Soliton technologies pvt. Ltd &copy; 2014</label>
+                </section>
+            </footer>
+        </div>
+    </body>
+</html>

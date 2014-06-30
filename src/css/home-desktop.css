@@ -1,0 +1,188 @@
+.home-header {
+    height: 50px;
+    background-color: #3F3F3F;
+    opacity: 1.0;
+}
+
+.home-header-label {
+    font-family: "Corbel";
+    font-size: 24px;
+    padding-top: 10px;
+    color: #fff;
+}
+
+.home-header-user {
+    padding-right: 10px;
+    float: right;
+}
+
+.home-main {
+    height: 250px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #3F3F3F;
+    
+}
+
+.home-bottom {
+    height: 350px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #3F3F3F;
+    
+}
+
+.home-footer {
+    height: 100px;
+    border-style: solid;
+    border-width: thin;
+    border-color: #3F3F3F;
+}
+
+.home-footer-logo {
+    height: 100px;
+    padding: 10px;
+}
+
+.container {
+    background: repeating-linear-gradient(to top , #FFFFFF, #FFFFFF 10px,#FAFAFA 10px, #FAFAFA 20px);
+}
+
+.home-footer-label {
+    padding-top: 80px;
+    float: right;
+}
+
+.home-header-image {
+    height: 40px;
+    float: right;
+    padding-right: 10px;
+    padding-top: 15px;
+    
+}
+
+.home-main-datepicker-section {
+    height: 30px;
+    width: 150px;
+    padding-top: 20px;
+    padding-left: 10px;
+    vertical-align: middle;
+    
+}
+
+.home-main-datepicker-label {
+    height: 30px;
+    padding-left: 10px;
+    padding-top: 24px;
+    float: left;
+    
+}
+
+.home-main-form-top {
+    width: 65%;
+    height: 50px;
+    float: left;
+}
+
+.home-main-form-bottom {
+    width: 65%;
+    height: 50px;
+    float: left;
+    margin-top: 50px;
+    position: absolute;
+}
+
+.home-main-form-middle {
+    float: left;
+}
+
+.home-main-datepicker {
+    height: 30px;
+}
+
+.home-main-input-big {
+    width: 200px;
+    float: left;
+    
+}
+
+.home-main-input-notes {
+    width: 620px;
+    float: left;
+    margin-top: 0px;
+    
+}
+
+.home-main-input-large {
+    width: 300px;
+    padding-left:10px;
+    margin-left: 10px;
+    float: left;
+    
+}
+
+.home-main-input-medium {
+    width: 100px;
+    float: left;
+    margin-left: 10px;
+    
+}
+
+.home-main-form{
+    padding-top: 60px;
+    padding-left: 20px;
+    
+}
+
+.home-main-timer {
+    font-size: 24px;
+    width: 100px;
+    height: 80px;
+    margin-left: 10px;
+    padding-top: 25px;
+    color: red;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.home-main-timer-edit {
+    font-size: 18px;
+    width: 100px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 20px;
+    color: grey;
+    opacity: 0.7;
+}
+
+.home-main-time-entry {
+    padding-left: 10px;
+    float: left;
+}
+
+.home-main-start-stop {
+    padding-left: 10px;
+    float: left;
+}
+
+.home-main-play {
+    height: 40px;
+    float: clear;
+    opacity: 1.0;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.home-main-stop {
+    height: 40px;
+    float: clear;
+    opacity: 1.0;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.home-main-log-btn {
+    width: 80px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
