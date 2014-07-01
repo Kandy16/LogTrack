@@ -3,13 +3,17 @@
     <head>
         <title>Time log Bootstrap</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="js/external/bootstrap/css/bootstrap.min.css"  rel="stylesheet" />
+        <link href="plugins/bootstrap/css/bootstrap.min.css"  rel="stylesheet" />
         <link href="css/home-desktop.css" rel="stylesheet" />
         <link href="plugins/bootstrap-datepicker/datepicker3.css" rel="stylesheet" />
         <script src="js/external/jquery-2.1.1.min.js" ></script>
-        <script src="js/external/bootstrap/js/bootstrap.js" ></script>
-        <script src="js/external/angular.js" ></script>
+        <script src="plugins/bootstrap/js/bootstrap.js" ></script>
+        <script src="plugins/angular/angular.js" ></script>
+        <script src="plugins/angular/angular-animate.js"></script>
+        <script src="plugins/angular/angular-sanitize.js"></script>
         <script src="plugins/bootstrap-datepicker/bootstrap-datepicker.js" ></script>
+        <script src="plugins/angularstrap/angular-strap.js"></script>
+        <script src="plugins/angularstrap/angular-strap.tpl.js"></script>
         <script src="js/data.js" ></script>
         <script src="js/timer.js"></script>
         <script src="js/home.js" ></script>
@@ -38,10 +42,10 @@
                 <form name="logForm" id="log.form" class="home-main-form">
                     <div>
                         <div class="home-main-form-top">
-                            <input type="text" class="form-control home-main-input-big" placeholder="Project" ng-model="newLog.project" />
-                            <input type="text" class="form-control home-main-input-large" placeholder="Task" ng-model="newLog.task" />
-                            <input type="text" class="form-control home-main-input-medium" placeholder="Skill" ng-model="newLog.skill" />
-                            <input type="text" class="form-control home-main-input-medium" placeholder="Phase" ng-model="newLog.phase" />
+                            <input type="text" class="form-control home-main-input-big" placeholder="Project" ng-model="newLog.project" ng-options="pro for pro in searchList.projects" bs-typeahead/>
+                            <input type="text" class="form-control home-main-input-large" placeholder="Task" ng-model="newLog.task" ng-options="tas for tas in searchList.tasks" bs-typeahead/>
+                            <input type="text" class="form-control home-main-input-medium" placeholder="Skill" ng-model="newLog.skill" ng-options="skill for skill in searchList.skills" bs-typeahead/>
+                            <input type="text" class="form-control home-main-input-medium" placeholder="Phase" ng-model="newLog.phase" ng-options="phase for phase in searchList.phases" bs-typeahead/>
                         </div>
                         <div class="home-main-form-middle">
                             <div class="home-main-time-entry">
@@ -56,7 +60,7 @@
                         </div>
                         <div class="home-main-form-bottom">
                             <input type="text" class="form-control home-main-input-notes" placeholder="Notes" ng-model="newLog.comment" />
-                            <input type="text" class="form-control home-main-input-medium" placeholder="Location" ng-model="newLog.place" />
+                            <input type="text" class="form-control home-main-input-medium" placeholder="Location" ng-model="newLog.place" ng-options="place for place in searchList.places" bs-typeahead/>
                         </div>
                     </div>
                     
