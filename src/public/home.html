@@ -1,0 +1,146 @@
+<html manifest="keep.appcache">
+<head>
+	<title>Home</title>
+	<style>
+		.ui-autocomplete
+			{
+				max-height:200px;
+				margin:0px;
+				padding:0 0 0 0;
+				overflow-y: auto;
+				overflow-x: hidden;
+				list-style-type: none;
+				background-color: #F2F2F2;
+				width:250px;
+				font-size:16px;
+				font-family: arial;
+			}
+		.ui-autocomplete a
+			{
+				padding:5 0 5 10;display: block;
+			}
+		.ui-autocomplete a:hover {background-color: #C1CDCD;cursor:default}
+
+		.mainField{
+				float: left;
+				margin: 0;
+				border: 0px solid;
+				background-color:#F2F2F2;
+				height: 35px;
+				width: 250px;
+				padding: 10px;
+				font-size: 16px}
+		textarea:focus, input:focus{outline: 0;}
+		.history{width:1135px;position:absolute;top:200px;left:30px;background-color:#CEECF5}
+		.marker{position:absolute;top:180px;left:30px}
+		input::-webkit-input-placeholder {font-size: 16px}
+	</style>
+	<script type="text/javascript" src="javascripts/jquery-1.11.1.js"></script>
+	<script type="text/javascript" src="javascripts/jquery-ui.js"></script>
+	<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>-->
+	<script>
+	var seconds=0,minutes=0,hours=0
+	var timer = null
+	
+	$(function() {
+	var projects = ["TI_TI India ISE","TI_Projects_Management","TI_Reference_Tool","TI_Audio_And_Imaging","TI_EDA_SML Automation_CA 4195101","TI_MDB","TI_MHR_HIREL","TI_Automotive RADAR","TI_HSP","TI_SVA Projects","TI_SLL_India"]
+    var tasks=["General customer meeting","Tools study","JIRA bugs fixing","Module integration","miscellaneous"]
+	var skills=["node.js","Python","LabView","C#","HTML","CSS","JavaScript","C","C++","Java","MySQL"]
+	var phases=["Requirements gathering","Design","Development","Testing","Maintenance"]
+	$("#project").autocomplete({source:projects,messages: {noResults: '',results: function(){}},autoFocus:true})
+	$("#task").autocomplete({source:tasks,messages: {noResults: '',results: function(){}}})
+	$("#skill").autocomplete({source:skills,messages: {noResults: '',results: function(){}}})
+	$("#phase").autocomplete({source:phases,messages: {noResults: '',results: function(){}}})
+	})
+
+	function edit()
+	{
+	$("#timer").replaceWith('<input type="text" class="mainField" id="uInput" style="width:65px;" placeholder="time">')
+	$("#clock").attr({src:"images/enter.jpg",onclick:"findCategory()"})
+	}
+	
+	function findCategory()
+	{
+	$("#marker").html("<p id='marker'>Today, 13 June, 2014	Monday")
+	var str=$("#uInput").val()
+	h=str.indexOf('h')
+	m=str.indexOf('m')
+	if (str.indexOf('n') > -1)
+		{
+		$("#category").attr("src","images/non-billable1.jpg")
+		}
+	$("#todayTable").append('<tr><td>'+$("#project").val()+'</td><td>'+$("#task").val()+'</td><td>'+(str.substr(0,h)+":"+str.substr(h+1,m-2))+'</td><td>'+$("#skill").val()+"</td><td>"+$("#phase").val()+"</td></tr>")
+	}
+	
+	function changeIcon()
+	{
+	if ($("#category").attr("src")=="images/billable1.jpg")
+		$("#category").attr("src","images/non-billable1.jpg")
+	else
+		$("#category").attr("src","images/billable1.jpg")
+	}
+	
+	function tictac()
+	{
+    seconds++;
+	if(seconds/60==1)
+		{
+		minutes++
+		seconds=0
+		}
+	if(minutes/60==1)
+		{
+		hours++
+		minutes=0
+		}
+	p_seconds=seconds
+	p_minutes=minutes
+	if(p_seconds<10){p_seconds='0'+p_seconds}
+	if(p_minutes<10){p_minutes='0'+p_minutes}
+	$("#timer").html(hours + ":" + p_minutes + ":" + p_seconds)
+	}
+	
+	function reset()
+	{
+	clearInterval(timer)
+    counter=0;
+	}
+	
+	function startInterval()
+	{
+	if ($("#clock").attr("src")=="images/stopClock.jpg") 
+		{stopInterval()}
+	else
+		{
+		$("#clock").attr({"src":"images/stopClock.jpg","height":"35","width":"35"})
+		timer= setInterval("tictac()", 1000)
+		}
+	}
+	
+	function stopInterval()
+	{
+	clearInterval(timer);
+	$("#clock").attr({"src":"images/startClock.jpg","height":"35","width":"35"})
+	}
+	</script>
+</head>
+<body>
+	<div style="position:absolute;top:100px;left:30px">
+		<div style="float:left">
+			<form>
+			<input type="text" class="mainField" id="project" placeholder="project">
+			<input type="text" class="mainField" id="task" placeholder="task">
+			<input type="text" class="mainField" id="skill" placeholder="skill">
+			<input type="text" class="mainField" id="phase" placeholder="phase">
+			<label id="timer"  style="font-size:16px;float: left;margin: 0;border: 0px solid;background-color:#F2F2F2;padding:7.5px 10px 7px 10px" onclick=edit()>0:00:00</label>
+			</form>
+		</div>
+		<div style="float:right;padding:0px 0px 0px 10px;">
+			<img id="clock" src="images/startClock.jpg" height="35px" width="35px" onclick=startInterval()></img>
+			<img id="category" src="images/billable1.jpg" height="35px" width="35px" onclick=changeIcon()></img>
+		</div>
+	</div>
+<table class="history" id="todayTable"></table>
+</body>
+</html>

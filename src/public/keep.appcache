@@ -1,0 +1,16 @@
+CACHE MANIFEST
+
+home.html
+
+images/billable1.jpg
+images/non-billable1.jpg
+images/startClock.jpg
+images/stopClock.jpg
+images/enter.jpg
+
+javascripts/jquery-1.11.1.js
+javascripts/jquery-ui.js
+
+NETWORK:
+*
+
