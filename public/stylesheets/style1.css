@@ -1,0 +1,45 @@
+.ui-autocomplete{
+	max-height:200px;
+	margin:0px;
+	padding:0 0 0 0;
+	overflow-y: auto;
+	overflow-x: hidden;
+	list-style-type: none;
+	background-color: #F2F2F2;
+	width:250px;
+	font-size:16px;
+	font-family: arial;
+}
+.ui-autocomplete a{
+	padding:5 0 5 10;display: block;
+}
+.ui-autocomplete a.ui-state-focus {background-color: #C1CDCD;cursor:default}
+.mainField{
+	float: left;
+	margin: 0;
+	border: 0px solid;
+	background-color:#F2F2F2;
+	height: 35px;
+	width: 175px; 
+	padding: 10px;
+	font-size: 16px
+}
+textarea:focus, input:focus {outline: 0;}
+input::-webkit-input-placeholder {font-size: 16px}
+.historyTable {
+	border: solid 1px;
+	width:1200px;
+	background-color:#CEECF5;
+	table-layout: fixed;
+	border-collapse:collapse;
+}
+.ui-datepicker {
+	display:none;
+}
+.title {
+	position: relative;
+}
+td {
+	overflow: hidden;
+	width: 240px;
+}
